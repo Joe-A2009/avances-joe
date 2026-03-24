@@ -36,7 +36,7 @@ export default function KidsClubPage() {
                   onChange={handleChange}
                   required
                   placeholder="Ej. Mateo García"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500 text-slate-700"
                 />
               </div>
 
@@ -51,7 +51,7 @@ export default function KidsClubPage() {
                   value={formData.edadNino}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500 text-slate-700"
                 />
               </div>
 
@@ -64,7 +64,7 @@ export default function KidsClubPage() {
                   value={formData.fecha}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500 text-slate-700"
                 />
               </div>
 
@@ -76,7 +76,7 @@ export default function KidsClubPage() {
                   value={formData.actividad}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500 bg-white"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500 bg-white text-slate-700"
                 >
                   <option value="">Seleccione una actividad...</option>
                   <option value="taller_arte">Taller de Arte y Pintura (10:00 - 12:00)</option>
@@ -87,14 +87,14 @@ export default function KidsClubPage() {
 
               {/* Campo: Alergias o Notas (Textarea) */}
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-slate-700 mb-1">Alergias o Notas Médicas (Opcional)</label>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Alergias o Notas Médicas (Si no posee puede no escribir nada)</label>
                 <textarea
                   name="alergias"
                   value={formData.alergias}
                   onChange={handleChange}
                   rows={3}
                   placeholder="Ninguna"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-sky-500 focus:border-sky-500 text-slate-700"
                 ></textarea>
               </div>
 

@@ -1,0 +1,51 @@
+import { useState } from 'react';
+
+// Estructura fiel al Diagrama de Clases y BD
+export interface ReservaMesa {
+  id_reserva: number;
+  cliente: string;
+  membresia: string;
+  turno_hora: string;
+  tipo_turno: 'Desayuno' | 'Comida' | 'Cena'; // NUEVO: Para clasificar la vista
+  personas: number;
+  estado: 'Pendiente' | 'En Uso' | 'Finalizada' | 'Cancelada';
+}
+
+export const useBitacoraRestaurante = () => {
+  // Estado para el filtro del Host (Flujo Normal S2: "El sistema muestra las reservas del turno")
+  const [turnoSeleccionado, setTurnoSeleccionado] = useState<'Desayuno' | 'Comida' | 'Cena'>('Cena');
+
+  // Base de datos simulada
+  const [reservas, setReservas] = useState<ReservaMesa[]>([
+    { id_reserva: 101, cliente: 'Familia García', membresia: 'VIP', turno_hora: '07:00 - 09:00', tipo_turno: 'Desayuno', personas: 4, estado: 'Pendiente' },
+    { id_reserva: 102, cliente: 'Sr. López', membresia: 'Premium', turno_hora: '13:00 - 15:00', tipo_turno: 'Comida', personas: 2, estado: 'En Uso' },
+    { id_reserva: 103, cliente: 'Ana Martínez', membresia: 'Estándar', turno_hora: '19:00 - 21:00', tipo_turno: 'Cena', personas: 6, estado: 'Pendiente' },
+    { id_reserva: 104, cliente: 'Familia Ruiz', membresia: 'Premium', turno_hora: '21:30 - 23:30', tipo_turno: 'Cena', personas: 3, estado: 'Pendiente' },
+  ]);
+
+  // Filtramos la tabla según el botón que presione el Host
+  const reservasFiltradas = reservas.filter((res) => res.tipo_turno === turnoSeleccionado);
+
+  // Método del Diagrama de Clases
+  const cambiarEstado = (id: number, nuevoEstado: ReservaMesa['estado']) => {
+    setReservas((prev) =>
+      prev.map((res) => (res.id_reserva === id ? { ...res, estado: nuevoEstado } : res))
+    );
+  };
+
+  // NUEVO: Flujo Alternativo (Cancelación / No Show)
+  const cancelarReserva = (id: number) => {
+    const confirmar = window.confirm('¿Confirmar que el cliente no se presentó o canceló? La mesa será liberada.');
+    if (confirmar) {
+      cambiarEstado(id, 'Cancelada');
+    }
+  };
+
+  return {
+    turnoSeleccionado,
+    setTurnoSeleccionado,
+    reservasFiltradas,
+    cambiarEstado,
+    cancelarReserva,
+  };
+};
