@@ -16,7 +16,6 @@ export default function BitacoraRestaurantePage() {
     <main className="min-h-screen bg-slate-100 py-10 px-4 font-sans">
       <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         
-        {/* ENCABEZADO Y EXCEPCIÓN WALK-IN */}
         <div className="bg-slate-900 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
             <h2 className="text-2xl font-serif font-bold text-amber-500">Bitácora de Recepción</h2>
@@ -27,7 +26,6 @@ export default function BitacoraRestaurantePage() {
             <span className="bg-amber-500 text-slate-900 text-sm font-bold px-3 py-2 rounded flex items-center">
               Usuario: Host
             </span>
-            {/* Flujo de Excepción: Cliente llega sin reserva previa */}
             <Link 
               href="/restaurante" 
               className="bg-emerald-600 text-white text-sm font-bold px-4 py-2 rounded hover:bg-emerald-500 transition shadow-md flex items-center"
@@ -91,7 +89,7 @@ export default function BitacoraRestaurantePage() {
                       </td>
 
                       <td className="p-3 flex justify-center gap-2">
-                        {/* Estado: Pendiente (Aún no llegan) */}
+                        {/* Estado: Pendiente */}
                         {res.estado === 'Pendiente' && (
                           <>
                             <button 
@@ -109,7 +107,7 @@ export default function BitacoraRestaurantePage() {
                           </>
                         )}
 
-                        {/* Estado: En Uso (Están comiendo) */}
+                        {/* Estado: En Uso  */}
                         {res.estado === 'En Uso' && (
                           <button 
                             onClick={() => cambiarEstado(res.id_reserva, 'Finalizada')} 

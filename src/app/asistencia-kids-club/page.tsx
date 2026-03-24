@@ -1,6 +1,5 @@
 'use client';
 
-// Importamos Link de Next.js para navegar entre páginas sin recargar
 import Link from 'next/link';
 import { useAsistenciaKidsClub } from '../../hooks/useAsistenciaKidsClub';
 
@@ -19,7 +18,7 @@ export default function AsistenciaKidsClubPage() {
     <main className="min-h-screen bg-sky-50 py-10 px-4 font-sans">
       <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-sky-500">
         
-        {/* ENCABEZADO Y BOTÓN DE EXCEPCIÓN E1 */}
+        {/* ENCABEZADO Y BOTÓN DE EXCEPCIÓN */}
         <div className="bg-sky-900 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
             <h2 className="text-2xl font-serif font-bold text-sky-100">Kids Club Staff</h2>
@@ -30,7 +29,7 @@ export default function AsistenciaKidsClubPage() {
             <span className="bg-sky-500 text-white text-sm font-bold px-3 py-2 rounded flex items-center">
               Usuario: Animador
             </span>
-            {/* AQUÍ CUBRIMOS LA EXCEPCIÓN E1: Botón para registro manual */}
+            {/* Botón para registro manual */}
             <Link 
               href="/kids-club" 
               className="bg-amber-500 text-slate-900 text-sm font-bold px-4 py-2 rounded hover:bg-amber-400 transition shadow-md flex items-center"

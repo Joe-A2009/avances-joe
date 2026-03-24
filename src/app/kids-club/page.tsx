@@ -1,6 +1,5 @@
 'use client';
 
-// Importamos nuestro cerebro lógico
 import { useKidsClub } from '../../hooks/useKidsClub';
 
 export default function KidsClubPage() {
@@ -10,7 +9,6 @@ export default function KidsClubPage() {
     <main className="min-h-screen bg-sky-50 py-12 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border-t-8 border-sky-400">
         
-        {/* Encabezado: Cambiamos tonos dorados por algo más fresco/divertido pero elegante */}
         <div className="bg-sky-900 px-8 py-6 text-center">
           <h2 className="text-3xl font-serif font-bold text-sky-100">
             Inscripción al Kids Club

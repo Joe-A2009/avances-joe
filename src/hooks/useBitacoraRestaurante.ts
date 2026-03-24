@@ -12,7 +12,6 @@ export interface ReservaMesa {
 }
 
 export const useBitacoraRestaurante = () => {
-  // Estado para el filtro del Host (Flujo Normal S2: "El sistema muestra las reservas del turno")
   const [turnoSeleccionado, setTurnoSeleccionado] = useState<'Desayuno' | 'Comida' | 'Cena'>('Cena');
 
   // Base de datos simulada
@@ -23,17 +22,14 @@ export const useBitacoraRestaurante = () => {
     { id_reserva: 104, cliente: 'Familia Ruiz', membresia: 'Premium', turno_hora: '21:30 - 23:30', tipo_turno: 'Cena', personas: 3, estado: 'Pendiente' },
   ]);
 
-  // Filtramos la tabla según el botón que presione el Host
   const reservasFiltradas = reservas.filter((res) => res.tipo_turno === turnoSeleccionado);
 
-  // Método del Diagrama de Clases
   const cambiarEstado = (id: number, nuevoEstado: ReservaMesa['estado']) => {
     setReservas((prev) =>
       prev.map((res) => (res.id_reserva === id ? { ...res, estado: nuevoEstado } : res))
     );
   };
 
-  // NUEVO: Flujo Alternativo (Cancelación / No Show)
   const cancelarReserva = (id: number) => {
     const confirmar = window.confirm('¿Confirmar que el cliente no se presentó o canceló? La mesa será liberada.');
     if (confirmar) {

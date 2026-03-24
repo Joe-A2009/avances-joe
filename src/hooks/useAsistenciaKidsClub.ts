@@ -48,9 +48,8 @@ export const useAsistenciaKidsClub = () => {
     );
   };
 
-  // NUEVA FUNCIÓN: Flujo Alternativo (Liberar Cupo)
+  
   const liberarCupo = (id: number) => {
-    // Confirmación nativa para evitar clics por accidente
     const confirmar = window.confirm('¿Está seguro de que el padre canceló y desea liberar este cupo?');
     if (confirmar) {
       setInscripciones((prev) => prev.filter((ins) => ins.id_inscripcion !== id));

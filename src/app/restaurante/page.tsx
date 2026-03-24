@@ -2,10 +2,7 @@
 
 import { useReservaRestaurante } from "@/hooks/useReservaRestaurante";
 
-// Importamos la lógica pura desde nuestro archivo .ts
-
 export default function Home() {
-  // Extraemos las variables y funciones de nuestra lógica
   const { formData, handleChange, handleSubmit } = useReservaRestaurante();
 
   return (
