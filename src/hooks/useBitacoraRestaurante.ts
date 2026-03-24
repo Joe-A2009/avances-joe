@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-// Estructura fiel al Diagrama de Clases y BD
 export interface ReservaMesa {
   id_reserva: number;
   cliente: string;
   membresia: string;
   turno_hora: string;
-  tipo_turno: 'Desayuno' | 'Comida' | 'Cena'; // NUEVO: Para clasificar la vista
+  tipo_turno: 'Desayuno' | 'Comida' | 'Cena'; 
   personas: number;
   estado: 'Pendiente' | 'En Uso' | 'Finalizada' | 'Cancelada';
 }
@@ -14,7 +13,6 @@ export interface ReservaMesa {
 export const useBitacoraRestaurante = () => {
   const [turnoSeleccionado, setTurnoSeleccionado] = useState<'Desayuno' | 'Comida' | 'Cena'>('Cena');
 
-  // Base de datos simulada
   const [reservas, setReservas] = useState<ReservaMesa[]>([
     { id_reserva: 101, cliente: 'Familia García', membresia: 'VIP', turno_hora: '07:00 - 09:00', tipo_turno: 'Desayuno', personas: 4, estado: 'Pendiente' },
     { id_reserva: 102, cliente: 'Sr. López', membresia: 'Premium', turno_hora: '13:00 - 15:00', tipo_turno: 'Comida', personas: 2, estado: 'En Uso' },

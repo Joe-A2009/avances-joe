@@ -63,6 +63,6 @@ export const useAsistenciaKidsClub = () => {
     ninosFiltrados,
     recibirNino,
     registrarSalida,
-    liberarCupo, // No olvides exportarla aquí
+    liberarCupo,
   };
 };
